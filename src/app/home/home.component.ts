@@ -13,7 +13,7 @@ import { ModalService } from '../services/modal.service';
 export class HomeComponent implements OnInit {
   currentUser: User;
   products: Product[] = [];
-  public search: any = '';
+  public searchText: any = '';
 
 
   constructor(private productService: ProductService, private modalService: ModalService) {
