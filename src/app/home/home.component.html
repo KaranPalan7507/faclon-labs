@@ -1,0 +1,19 @@
+<p><a [routerLink]="['/login']">Logout</a></p>
+<h1>Hi {{currentUser.firstName}}!</h1>
+<h3>Products</h3>
+<div class="form-group">
+  <div class="col-md-6">
+      <input [(ngModel)]="searchText" placeholder="search products">
+    </div>
+</div>
+<ul *ngIf="products.length > 0">
+  <li *ngFor="let product of products | filter : searchText">
+    <a [routerLink]="['/productDetails',product.id]"> {{product.name}}</a>
+    - <a (click)="showDeleteProductModal(product.id)" class="text-danger">Delete</a>
+    - <a (click)="showEditProductModal(product.id)" class="text-primary">Edit</a>
+  </li>
+</ul>
+<p *ngIf="products.length === 0">
+  No products found
+</p>
+<a (click)="showAddProductModal()" class="text-primary">Add Product</a>
